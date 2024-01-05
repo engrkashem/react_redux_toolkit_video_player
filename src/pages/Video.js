@@ -15,13 +15,11 @@ const Video = (props) => {
     (state) => state.video
   );
 
-
-
   useEffect(() => {
     dispatch(fetchVideo(videoId));
   }, [dispatch, videoId]);
 
-  const {link, title, description, date, id, tags}=video ||{};
+  const { link, title, id, tags } = video || {};
 
   // decide what to render
   let content = null;
@@ -38,15 +36,10 @@ const Video = (props) => {
       <div className="grid grid-cols-3 gap-2 lg:gap-8">
         <div className="col-span-full w-full space-y-8 lg:col-span-2">
           {/* <!-- video player --> */}
-          <VideoPlayer
-            link={link}
-            title={title}
-          />
+          <VideoPlayer link={link} title={title} />
 
           {/* <!-- video description --> */}
-          <VideoDescription
-            video={video}
-          />
+          <VideoDescription video={video} />
         </div>
 
         {/* <!-- related videos --> */}
